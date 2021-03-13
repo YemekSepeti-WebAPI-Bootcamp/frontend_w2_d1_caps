@@ -5,6 +5,7 @@ class App extends React.Component {
     super();
     this.state = {
       memes: null,
+      city: 34
     };
 
     console.log("constructor");
@@ -12,17 +13,17 @@ class App extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     console.log("getDerivedFromState", props, state);
-    return props;
+    return { ...props, ...state };
   }
 
   componentDidMount() {
     // fetch()
-    // this.setState({ deneme: "component did mount" });
+    this.setState({ deneme: "component did mount" });
     console.log("comonentDidMount");
   }
 
   render() {
-    // console.log("render", this.state);
+    console.log("render", this.state);
     return <div className="App">{this.state.deneme}</div>;
   }
 }
