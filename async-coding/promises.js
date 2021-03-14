@@ -87,3 +87,4 @@ const getAdv = new Promise((resolve, reject) => {
 // });
 
 Promise.all([getCities, getAdv]).then((result) => console.log(result));
+
