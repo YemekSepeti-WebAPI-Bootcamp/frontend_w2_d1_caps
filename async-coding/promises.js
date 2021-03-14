@@ -63,11 +63,11 @@ function getMenu(restauran) {
 //   });
 // });
 
-// login("murat", "1234")
-//   .then((token) => getRestaurants(token))
-//   .then((restaurants) => getMenu(restaurants[4]))
-//   .then((menu) => console.log(menu))
-//   .catch((err) => console.log(err));
+login("murat", "1234")
+  .then((token) => getRestaurants(token))
+  .then((restaurants) => getMenu(restaurants[4]))
+  .then((menu) => console.log(menu))
+  .catch((err) => console.log(err));
 
 const getCities = new Promise((resolve, reject) => {
   setTimeout(() => {
