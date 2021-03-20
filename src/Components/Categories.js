@@ -1,12 +1,5 @@
-import {
-  Button,
-  Divider,
-  Typography,
-  Grid,
-  CircularProgress,
-} from "@material-ui/core";
+import { Button, Divider, Typography, Grid } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
-import { useEffect, useState } from "react";
 import Container from "./Container";
 
 import useFetch from "../hooks/useFetch";
@@ -19,6 +12,7 @@ const Categories = () => {
       <div>
         {[...Array(20).keys()].map((p) => (
           <Skeleton
+            key={p}
             variant="rect"
             width={"80%"}
             height={40}
@@ -35,7 +29,7 @@ const Categories = () => {
       <Grid container direction="column">
         {categories.map((category) => {
           return (
-            <Button>
+            <Button key={category.id}>
               <Grid container>
                 <Typography>{category.name}</Typography>
               </Grid>
