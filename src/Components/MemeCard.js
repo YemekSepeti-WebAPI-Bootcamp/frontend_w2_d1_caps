@@ -12,6 +12,7 @@ import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import ThumbDownAltOutlinedIcon from "@material-ui/icons/ThumbDownAltOutlined";
 const MemeCard = ({ meme }) => {
   const classes = useStyles();
+  console.log({ classes });
 
   return (
     <Grid container direction="column" className={classes.root}>

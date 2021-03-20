@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 import useFetch from "../hooks/useFetch";
 
@@ -7,9 +7,10 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [categories] = useFetch(`categories`);
   const [memes] = useFetch("created_memes?_expand=user");
+  const [loginUser, setLoginUser] = useState();
 
   return (
-    <AppContext.Provider value={{ categories, memes }}>
+    <AppContext.Provider value={{ categories, memes, loginUser, setLoginUser }}>
       {props.children}
     </AppContext.Provider>
   );
