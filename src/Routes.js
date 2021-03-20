@@ -1,5 +1,5 @@
 
-import App from "./App";
+import Home from "./App";
 import Login from "./Login";
 
 import {
@@ -13,7 +13,7 @@ const Routes = () => {
     return <Router>
         <Switch>
             <Route path="/" exact>
-                <App />
+                <Home />
             </Route>
             <Route path="/login" exact>
                 <Login />
