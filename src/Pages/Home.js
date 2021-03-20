@@ -1,5 +1,5 @@
-import Layout from "./Components/Layaut";
-import TopAppBar from "./Components/TopAppBar";
+import Layout from "../Components/Layout";
+import TopAppBar from "../Components/TopAppBar";
 
 const Home = () => {
   return (

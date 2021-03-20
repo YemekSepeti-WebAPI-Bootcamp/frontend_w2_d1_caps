@@ -1,6 +1,6 @@
 
-import Home from "./App";
-import Login from "./Login";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 import {
     BrowserRouter as Router,
