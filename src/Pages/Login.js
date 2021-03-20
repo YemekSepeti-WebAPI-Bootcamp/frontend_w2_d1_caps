@@ -1,7 +1,7 @@
 import Layout from "../Components/Layout";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Grid } from "@material-ui/core";
 import useAppContext from "../hooks/useAppContext";
 import { withRouter } from "react-router";
 import withLogger from "../hocs/withLogger";
@@ -61,34 +61,52 @@ const Login = ({ history, myProp }) => {
   //   console.log({ formik });
 
   return (
-    <Layout>
-      <h2>Login</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="username"
-          name="username"
-          label="Username"
-          value={formik.values.username}
-          onChange={formik.handleChange}
-          error={formik.touched.username && Boolean(formik.errors.username)}
-          helperText={formik.touched.username && formik.errors.username}
-        />
-        <TextField
-          fullWidth
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
-        <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
-        </Button>
-      </form>
+    <Layout hideSidebar>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        direction="column"
+        style={{ height: "70vh" }}
+      >
+        <h2>Login</h2>
+        <form onSubmit={formik.handleSubmit} style={{ maxWidth: 500 }}>
+          <TextField
+            fullWidth
+            id="username"
+            name="username"
+            label="Username"
+            variant="outlined"
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            error={formik.touched.username && Boolean(formik.errors.username)}
+            helperText={formik.touched.username && formik.errors.username}
+            style={{ marginTop: 10 }}
+          />
+          <TextField
+            fullWidth
+            id="password"
+            name="password"
+            label="Password"
+            type="password"
+            variant="outlined"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+            style={{ marginTop: 10 }}
+          />
+          <Button
+            color="primary"
+            variant="contained"
+            fullWidth
+            type="submit"
+            style={{ marginTop: 10 }}
+          >
+            Submit
+          </Button>
+        </form>
+      </Grid>
     </Layout>
   );
 };
