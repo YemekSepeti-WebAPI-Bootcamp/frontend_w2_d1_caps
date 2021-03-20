@@ -9,19 +9,10 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import { useEffect, useState } from "react";
 import Container from "./Container";
 
+import useFetch from "../hooks/useFetch";
+
 const Categories = () => {
-  const [categories, setCategories] = useState();
-
-  useEffect(() => {
-    fetchCategories();
-  });
-
-  const fetchCategories = async () => {
-    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/categories`);
-    const response = await res.json();
-
-    setCategories(response);
-  };
+  const [categories] = useFetch(`categories`);
 
   if (!categories)
     return (

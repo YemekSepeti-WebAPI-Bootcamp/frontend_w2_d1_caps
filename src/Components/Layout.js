@@ -13,7 +13,6 @@ const Layout = ({ children }) => {
                 {children}
             </Grid>
         </Grid>
-
     </div>
 }
 
