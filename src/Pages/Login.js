@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { TextField, Button } from "@material-ui/core";
 import useAppContext from "../hooks/useAppContext";
 import { withRouter } from "react-router";
-import withLogger from "./hocs/withLogger";
+import withLogger from "../hocs/withLogger";
 
 const validationSchema = yup.object({
   username: yup.string("Enter your username").required("Username is required"),
