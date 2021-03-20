@@ -1,11 +1,10 @@
 import { Button, Divider, Typography, Grid } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
+import useAppContext from "../hooks/useAppContext";
 import Container from "./Container";
 
-import useFetch from "../hooks/useFetch";
-
 const Categories = () => {
-  const [categories] = useFetch(`categories`);
+  const { categories } = useAppContext();
 
   if (!categories)
     return (

@@ -4,9 +4,10 @@ import Layout from "../Components/Layout";
 import useFetch from "../hooks/useFetch";
 
 import MemeCard from "../Components/MemeCard";
+import useAppContext from "../hooks/useAppContext";
 
 const Home = () => {
-  const [memes] = useFetch("created_memes?_expand=user");
+  const { memes } = useAppContext();
 
   if (!memes)
     return (
