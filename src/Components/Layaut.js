@@ -6,10 +6,10 @@ const Layout = ({ children }) => {
     return <div>
         <TopAppBar />
         <Grid container >
-            <Grid item md={2} style={{ height: "95vh" }}>
+            <Grid item md={3} style={{ height: "95vh" }}>
                 <Categories />
             </Grid>
-            <Grid item md={10} style={{ height: "95vh" }}>
+            <Grid item md={9} style={{ height: "95vh" }}>
                 {children}
             </Grid>
         </Grid>
