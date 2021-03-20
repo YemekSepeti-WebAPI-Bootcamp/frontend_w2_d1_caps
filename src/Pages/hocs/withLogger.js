@@ -16,6 +16,7 @@ const withLogger = (WrappedComponent) => {
       return <WrappedComponent myProp={myProp} />;
     }
   };
+  
 };
 
 export default withLogger;

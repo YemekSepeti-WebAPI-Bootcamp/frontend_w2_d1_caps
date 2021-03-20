@@ -33,6 +33,9 @@ export default function TopAppBar() {
           <Link to={{ pathname: "/" }}>
             <Button color="inherit">Anasayfa</Button>
           </Link>
+          <Link to={{ pathname: "/about-us" }}>
+            <Button color="inherit">Hakkımızda</Button>
+          </Link>
           <Link to={{ pathname: "/login" }}>
             <Button color="inherit">Login</Button>
           </Link>

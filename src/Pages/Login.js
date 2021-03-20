@@ -93,4 +93,4 @@ const Login = ({ history, myProp }) => {
   );
 };
 
-export default withLogger(Login);
+export default withRouter(Login);
