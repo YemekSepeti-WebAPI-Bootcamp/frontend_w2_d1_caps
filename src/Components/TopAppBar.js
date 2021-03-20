@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import useAppContext from "../hooks/useAppContext";
+import UserProfileButton from "./UserProfileButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TopAppBar() {
   const classes = useStyles();
+  const { loginUser } = useAppContext();
+
+  console.log({ loginUser });
 
   return (
     <div className={classes.root}>
@@ -36,9 +41,14 @@ export default function TopAppBar() {
           <Link to={{ pathname: "/about-us" }}>
             <Button color="inherit">Hakkımızda</Button>
           </Link>
-          <Link to={{ pathname: "/login" }}>
-            <Button color="inherit">Login</Button>
-          </Link>
+
+          {!loginUser ? (
+            <Link to={{ pathname: "/login" }}>
+              <Button color="inherit">Login</Button>
+            </Link>
+          ) : (
+            <UserProfileButton loginUser={loginUser} />
+          )}
         </Toolbar>
       </AppBar>
     </div>
