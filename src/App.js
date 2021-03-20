@@ -1,13 +1,13 @@
-import Layout from './Components/Layaut'
-import TopAppBar from './Components/TopAppBar'
+import Layout from "./Components/Layaut";
+import TopAppBar from "./Components/TopAppBar";
 
-const App = () => {
-    return <Layout>
-        <h2>Anasayfa</h2>
-        <a href="/">
-            deneme
-        </a>
+const Home = () => {
+  return (
+    <Layout>
+      <h2>Anasayfa</h2>
+      <a href="/">deneme</a>
     </Layout>
-}
+  );
+};
 
-export default App
+export default Home;

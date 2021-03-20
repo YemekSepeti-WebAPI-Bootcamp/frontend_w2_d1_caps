@@ -1,4 +1,11 @@
-import { Button, Divider, Typography, Grid } from "@material-ui/core";
+import {
+  Button,
+  Divider,
+  Typography,
+  Grid,
+  CircularProgress,
+} from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
 import { useEffect, useState } from "react";
 import Container from "./Container";
 
@@ -6,18 +13,36 @@ const Categories = () => {
   const [categories, setCategories] = useState();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/categories`)
-      .then((res) => res.json())
-      .then((response) => setCategories(response));
+    fetchCategories();
   });
+
+  const fetchCategories = async () => {
+    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/categories`);
+    const response = await res.json();
+
+    setCategories(response);
+  };
+
+  if (!categories)
+    return (
+      <div>
+        {[...Array(20).keys()].map((p) => (
+          <Skeleton
+            variant="rect"
+            width={"80%"}
+            height={40}
+            style={{ margin: 10, borderRadius: 8 }}
+          />
+        ))}
+      </div>
+    );
 
   return (
     <Container>
       <Typography variant="h5"> Categories </Typography>
       <Divider />
       <Grid container direction="column">
-        {JSON.stringify(categories)}
-        {/* {categories.map((category) => {
+        {categories.map((category) => {
           return (
             <Button>
               <Grid container>
@@ -25,7 +50,7 @@ const Categories = () => {
               </Grid>
             </Button>
           );
-        })} */}
+        })}
       </Grid>
     </Container>
   );
