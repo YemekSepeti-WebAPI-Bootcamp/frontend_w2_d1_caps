@@ -26,6 +26,12 @@ const Login = ({ history, myProp }) => {
 
   const { setLoginUser } = useAppContext();
 
+  const loginSucceed = (user) => {
+    localStorage.setItem("loginUser", JSON.stringify(user));
+    setLoginUser(user);
+    history.push("/");
+  };
+
   const loginAction = async ({ username, password }) => {
     const res = await fetch(
       `${process.env.REACT_APP_BASE_URL}/users?username=${username}`
@@ -40,10 +46,18 @@ const Login = ({ history, myProp }) => {
       if (!passwordCorrect) {
         alert("Password is wrong");
       } else {
-        localStorage.setItem("loginUser", JSON.stringify(user));
-        setLoginUser(user);
-        history.push("/");
+        loginSucceed(user);
       }
+    } else {
+      const res = await fetch(`${process.env.REACT_APP_BASE_URL}/users`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+      });
+      const createdUser = await res.json();
+      loginSucceed(createdUser);
     }
   };
 
