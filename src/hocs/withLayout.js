@@ -1,10 +1,10 @@
 import Layout from "../Components/Layout";
 
 const withLayout = (WrappedComponent) => {
-  return () => {
+  return (props) => {
     return (
       <Layout>
-        <WrappedComponent />
+        <WrappedComponent {...props} />
       </Layout>
     );
   };

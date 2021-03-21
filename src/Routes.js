@@ -3,6 +3,7 @@ import Login from "./Pages/Login";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AboutUs from "./Pages/AboutUs";
+import CreateMeme from "./Pages/CreateMeme";
 
 const Routes = () => {
   return (
@@ -16,6 +17,9 @@ const Routes = () => {
         </Route>
         <Route path="/about-us" exact>
           <AboutUs />
+        </Route>
+        <Route path="/create-meme" exact>
+          <CreateMeme />
         </Route>
       </Switch>
     </Router>

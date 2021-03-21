@@ -42,6 +42,12 @@ export default function TopAppBar() {
             <Button color="inherit">Hakkımızda</Button>
           </Link>
 
+          {loginUser && (
+            <Link to={{ pathname: "/create-meme" }}>
+              <Button color="inherit">Create Meme</Button>
+            </Link>
+          )}
+
           {!loginUser ? (
             <Link to={{ pathname: "/login" }}>
               <Button color="inherit">Login</Button>
